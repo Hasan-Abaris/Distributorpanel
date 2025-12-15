@@ -1,4 +1,4 @@
-import DashboardStatics from '@/views/Dashboard/Sales/DashboardStats'
+import DashboardStatics from '@/views/Dashboard/DashboardStats'
 import React from 'react'
 
 function Dashsaticspage() {
