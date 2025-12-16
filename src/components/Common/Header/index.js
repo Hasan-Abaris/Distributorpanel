@@ -64,7 +64,7 @@ export default function Navbar() {
 
             {/* Mobile Button */}
             <Link
-              href="#"
+              href="/login"
               className="mt-4 text-center text-white text-sm font-medium px-5 py-3 rounded-md transition
               bg-[linear-gradient(160.41deg,_#0B81CF_-5.15%,_#0069AF_87.35%)]
               hover:opacity-90"

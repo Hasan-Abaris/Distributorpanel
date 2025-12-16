@@ -4,6 +4,8 @@ import WhatWeCanDoSection from './Whatwedo'
 import AllInOnePlatformSection from './Allinone'
 import DigitalProductsSection from './Digitalsection'
 import HowSellingWorksSection from './Sellingsection'
+import App from './Appbanner'
+import TestimonialSection from './Testimonial'
 
 function Homemainpage() {
   return (
@@ -13,6 +15,8 @@ function Homemainpage() {
             <AllInOnePlatformSection/>
             <DigitalProductsSection/>
             <HowSellingWorksSection/>
+            <App/>
+            <TestimonialSection/>
     </div>
   )
 }
