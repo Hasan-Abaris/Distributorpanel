@@ -18,7 +18,7 @@ export default function Sidebar() {
     <>
       {/* ================= DESKTOP SIDEBAR ================= */}
       <aside className="hidden lg:flex w-[260px] h-screen bg-white border-r p-4">
-        <ul className="flex flex-col gap-2 w-full">
+        <ul className="flex flex-col gap-2 w-full list-none">
           {menu.map(item => {
             const active = pathname === item.href
             const Icon = item.icon

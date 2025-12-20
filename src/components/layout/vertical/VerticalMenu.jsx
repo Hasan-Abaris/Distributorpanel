@@ -5,7 +5,7 @@ import { useTheme } from '@mui/material/styles'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
 // Component Imports
-import { Menu, MenuItem } from '@menu/vertical-menu'
+import { Menu, MenuItem, SubMenu } from '@menu/vertical-menu'
 
 // Hook Imports
 import useVerticalNav from '@menu/hooks/useVerticalNav'
@@ -19,22 +19,18 @@ import menuSectionStyles from '@core/styles/vertical/menuSectionStyles'
 
 const RenderExpandIcon = ({ open, transitionDuration }) => (
   <StyledVerticalNavExpandIcon open={open} transitionDuration={transitionDuration}>
-    <i className='tabler-chevron-right' />
+    <i className="tabler-chevron-right" />
   </StyledVerticalNavExpandIcon>
 )
 
 const VerticalMenu = ({ scrollMenu }) => {
-  // Hooks
   const theme = useTheme()
   const verticalNavOptions = useVerticalNav()
 
-  // Vars
   const { isBreakpointReached, transitionDuration } = verticalNavOptions
   const ScrollWrapper = isBreakpointReached ? 'div' : PerfectScrollbar
 
   return (
-    // eslint-disable-next-line lines-around-comment
-    /* Custom scrollbar instead of browser scroll, remove if you want browser scroll only */
     <ScrollWrapper
       {...(isBreakpointReached
         ? {
@@ -46,44 +42,42 @@ const VerticalMenu = ({ scrollMenu }) => {
             onScrollY: container => scrollMenu(container, true)
           })}
     >
-      {/* Incase you also want to scroll NavHeader to scroll with Vertical Menu, remove NavHeader from above and paste it below this comment */}
-      {/* Vertical Menu */}
       <Menu
         popoutMenuOffset={{ mainAxis: 23 }}
         menuItemStyles={menuItemStyles(verticalNavOptions, theme)}
-        renderExpandIcon={({ open }) => <RenderExpandIcon open={open} transitionDuration={transitionDuration} />}
-        renderExpandedMenuItemIcon={{ icon: <i className='tabler-circle text-xs' /> }}
+        renderExpandIcon={({ open }) => (
+          <RenderExpandIcon open={open} transitionDuration={transitionDuration} />
+        )}
+        renderExpandedMenuItemIcon={{ icon: <i className="tabler-circle text-xs" /> }}
         menuSectionStyles={menuSectionStyles(verticalNavOptions, theme)}
       >
-        <MenuItem href='/Dashboard' icon={<i className='tabler-dashboard' />}>
+        {/* Normal Menu Items */}
+        <MenuItem href="/Dashboard" icon={<i className="tabler-dashboard" />}>
           Dashboard
         </MenuItem>
-        <MenuItem href='/add-product' icon={<i className='tabler-square-plus' />}>
+
+        <MenuItem href="/add-product" icon={<i className="tabler-square-plus" />}>
           Add a Product
         </MenuItem>
 
-        {/* <MenuItem href='/home' icon={<i className='tabler-smart-home' />}>
-          Home
-        </MenuItem>
-        <MenuItem href='/about' icon={<i className='tabler-info-circle' />}>
-          Abouts
-        </MenuItem>
-        <MenuItem href='/product/product-list' icon={<i className="tabler-shopping-cart" />}>
-          Product List
-        </MenuItem>
-         <MenuItem href='/crm' icon={<i className="tabler-shopping-cart" />}>
-          Crm
-        </MenuItem> */}
+        {/* Inventory Dropdown */}
+        <SubMenu label="Inventory" icon={<i className="tabler-box" />}>
+          <MenuItem href="/inventory/item-master">
+            Item Master
+          </MenuItem>
+
+          <MenuItem href="/inventory/InventoryApproval">
+            Inventory Approval
+          </MenuItem>
+
+          <MenuItem href="/inventory/Stock">
+            Stock
+          </MenuItem>
+          <MenuItem href="/inventory/Barcode">
+            Barcode
+          </MenuItem>
+        </SubMenu>
       </Menu>
-      {/* <Menu
-          popoutMenuOffset={{ mainAxis: 23 }}
-          menuItemStyles={menuItemStyles(verticalNavOptions, theme)}
-          renderExpandIcon={({ open }) => <RenderExpandIcon open={open} transitionDuration={transitionDuration} />}
-          renderExpandedMenuItemIcon={{ icon: <i className='tabler-circle text-xs' /> }}
-          menuSectionStyles={menuSectionStyles(verticalNavOptions, theme)}
-        >
-          <GenerateVerticalMenu menuData={menuData(dictionary)} />
-        </Menu> */}
     </ScrollWrapper>
   )
 }

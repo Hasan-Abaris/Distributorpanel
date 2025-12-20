@@ -5,7 +5,7 @@ export default function App() {
     <>
       {/* Full-width Hero Banner - Exact match to your screenshot */}
       <div
-        className="relative w-full h-[360px] overflow-hidden"
+        className="relative w-full h-[360px] overflow-hidden px-10 py-10"
         style={{
           background: 'linear-gradient(160.41deg, #0B81CF -5.15%, #0069AF 87.35%)',
         }}

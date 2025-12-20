@@ -617,31 +617,12 @@ export default function RegistrationForm() {
               )}
             </div>
           </div>
+        
         </div>
+        hi
       </div>
     </div>
   )
 }
 
-;<button
-  onClick={() => setActiveStep(0)}
-  className='w-[150px] h-[48px] flex items-center justify-center
-               border-2 border-gray-300 text-gray-700 rounded-2xl
-               font-medium hover:bg-gray-50 transition'
->
-  Back
-</button>
 
-{
-  /* Continue Button */
-}
-;<button
-  onClick={() => setActiveStep(2)}
-  className='w-[150px] h-[48px] items- items-center justify-center
-             text-white rounded-2xl font-semibold shadow-lg transition'
-  style={{
-    background: 'linear-gradient(160.41deg, #0B81CF -5.15%, #0069AF 87.35%)'
-  }}
->
-  Continue
-</button>
